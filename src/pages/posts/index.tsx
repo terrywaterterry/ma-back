@@ -1,6 +1,9 @@
+import AdSense from '@/components/AdSense';
+
 import { FaustPage, getNextServerSideProps } from '@faustwp/core'
 import { gql } from '@/__generated__'
 import {
+	GetPageQuery,
 	NcgeneralSettingsFieldsFragmentFragment,
 	OrderEnum,
 	PostObjectsConnectionOrderbyEnum,
@@ -36,6 +39,20 @@ interface ConTextQuery {
 	after: string | null
 	before: string | null
 }
+
+
+
+const Page: FaustTemplate<GetPageQuery> = (props) => {
+  return (
+    <div>
+     {/* Other page content */}
+      <AdSense client="ca-pub-4921950396384050" slot="1234567890" />
+      {/* Other page content */}
+    </div>
+  );
+};
+
+
 
 const Page: FaustPage<PostsFilterPageQueryGetPostsQuery> = (props) => {
 	const { posts } = props.data || {}

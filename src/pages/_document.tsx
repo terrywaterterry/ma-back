@@ -24,6 +24,16 @@ export default class Document extends NextDocument {
 				dir={process.env.NEXT_PUBLIC_SITE_DIRECTION}
 			>
 				<Head>
+				<meta
+          			httpEquiv="Content-Security-Policy"
+          			content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://pagead2.googlesyndication.com https://partner.googleadservices.com https://tpc.googlesyndication.com https://www.googletagservices.com"
+        		/>
+         
+        <script
+           async
+           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4921950396384050"
+           crossOrigin="anonymous"
+         />
 					<link
 						href={`${SITE_URL}/api/feeds/feed.json`}
 						rel="alternate"

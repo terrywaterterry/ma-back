@@ -1,4 +1,5 @@
-import AdSense from '@/components/AdSense';
+import dynamic from 'next/dynamic'
+const AdSense = dynamic(() => import('@/components/AdSense'), { ssr: false })
 
 import { FaustPage, getNextServerSideProps } from '@faustwp/core'
 import { gql } from '@/__generated__'

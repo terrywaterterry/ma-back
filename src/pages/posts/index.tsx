@@ -40,20 +40,6 @@ interface ConTextQuery {
 	before: string | null
 }
 
-
-
-const Page: FaustTemplate<GetPageQuery> = (props) => {
-  return (
-    <div>
-     {/* Other page content */}
-      <AdSense client="ca-pub-4921950396384050" slot="1234567890" />
-      {/* Other page content */}
-    </div>
-  );
-};
-
-
-
 const Page: FaustPage<PostsFilterPageQueryGetPostsQuery> = (props) => {
 	const { posts } = props.data || {}
 	const router = useRouter()
@@ -189,7 +175,17 @@ const Page: FaustPage<PostsFilterPageQueryGetPostsQuery> = (props) => {
 
 							<hr className="border-slate-200 dark:border-slate-700" />
 
+							
+
+
+
 							<main>
+
+  								<AdSense 
+								client="ca-pub-4921950396384050"
+    							slot="1234567890"
+ 			 					/>
+
 								{/* TABS FILTER */}
 								<div className="flex flex-col lg:flex-row lg:justify-between">
 									<TabFilters

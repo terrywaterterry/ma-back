@@ -1,0 +1,3 @@
+[submodule "front-end/ncmaz-faust"]
+	path = front-end/ncmaz-faust
+	url = https://github.com/terrywaterterry/ma-back.git

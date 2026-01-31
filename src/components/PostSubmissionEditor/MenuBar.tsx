@@ -290,10 +290,18 @@ export default ({ editor }: { editor: Editor }) => {
 					<ModalGetIframeUrl
 						show={isOpenIframeModal}
 						onSubmit={(value) => {
-							if (!!value) {
-								editor.chain().focus().setIframe({ src: value }).run()
-							}
-						}}
+								if (!!value) {
+									const chainAny = (editor as any).chain ? (editor as any).chain().focus() : null
+									if (chainAny && typeof chainAny.setIframe === 'function') {
+										chainAny.setIframe({ src: value }).run()
+									} else if ((editor as any).commands && typeof (editor as any).commands.setIframe === 'function') {
+										;(editor as any).commands.setIframe({ src: value })
+									} else {
+										// fallback: insert raw iframe HTML
+										editor.chain().focus().insertContent(`<div class="nc-iframe-wrapper"><iframe src="${value}" width="640" height="360"></iframe></div>`).run()
+									}
+								}
+							}}
 						onCloseModal={() => setIsOpenIframeModal(false)}
 					/>
 
